@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "tech-blog-agents"
+version = "0.1.0"
+description = "AIエージェントを使用した技術ブログ記事生成システム"
+authors = ["Your Name <your.email@example.com>"]
+packages = [
+    { include = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langgraph = "^0.0.15"
+openai = "^1.0.0"
+langchain = "^0.1.0"
+langchain-community = "^0.0.10"
+langchain-openai = "^0.0.2"
+python-dotenv = "^1.0.0"
+pydantic = "^2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-asyncio = "^0.23.0"
+pytest-cov = "^4.1.0"
+black = "^24.0.0"
+isort = "^5.13.0"
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=src --cov-report=term-missing"
+pythonpath = [
+    "."
+] 
